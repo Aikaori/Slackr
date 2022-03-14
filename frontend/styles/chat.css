@@ -1,0 +1,432 @@
+/* chat basic setting */
+.chat {
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* chat message container */
+.chatMessage {
+    position: relative;
+    padding: 0.6em;
+    border-radius: 0.3em;
+    background-color: rgb(115, 230, 140);
+    max-width: 60%;
+    font-size: 0.9em;
+    cursor: pointer;
+    overflow-wrap: break-word;
+}
+
+.chatMessage::before {
+    content:"";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border: 0.6em solid transparent;
+    border-right: 0.6em solid rgb(115, 230, 140);
+    top: 1.2em;
+    right: 100%;
+}
+
+.chatMessage:hover,
+.messageSelected {
+    background-color: rgb(66, 189, 93);
+}
+
+/* chat user name */
+.chatUserName {
+    position: absolute;
+    left: calc(4rem + 16px);
+    top: 1rem;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.chatUserName:hover {
+    color: lightgrey;
+}
+
+/* chat sent time */
+.chatSentTime {
+    position: absolute;
+    left: calc(4rem + 16px);
+    top: 0;
+    font-size: 0.8em;
+}
+
+/* chat user profile image */
+.chatUserImage {
+    width: 3em;
+    height: 3em;
+    border-radius: 1.5em;
+    border: 1px solid grey;
+    margin-right: 1em;
+}
+
+/* chat message container */
+.chatMessageContainer {
+    display: flex;
+    position: relative;
+    padding: 0 16px;
+    padding-top: 2.1em;
+    flex-flow: row wrap;
+    margin: 0.7em 0;
+    padding-bottom: 1em;
+}
+
+/* edit time container */
+.editedTime {
+    position: absolute;
+    left: calc(4rem + 16px);
+    bottom: 0;
+    font-size: 0.8em;
+    color: rgb(170, 170, 170);
+}
+
+/* own message container */
+.ownMessageContainer {
+    flex-direction: row-reverse;
+}
+
+/* own message's appearance */
+.ownMessage {
+    position: relative;
+    padding: 0.6em;
+    border-radius: 0.3em;
+    background-color: rgb(240, 230, 140);
+    max-width: 60%;
+    font-size: 0.9em;
+    cursor: pointer;
+    overflow-wrap: break-word;
+}
+
+.ownMessage::before {
+    content:"";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border: 0.6em solid transparent;
+    border-left: 0.6em solid rgb(240, 230, 140);
+    top: 1.2em;
+    left: 100%;
+}
+
+.ownMessage:hover,
+.ownMessageSelected {
+    background-color: rgb(217 204 92);
+}
+
+/* chat own user name */
+.ownUserName {
+    right : calc(4rem + 16px);
+    left: unset;
+}
+
+/* chat own sent time */
+.ownSentTime {
+    right: calc(4rem + 16px);
+    left: unset;
+}
+
+/* chat own profile image */
+.ownUserImage {
+    margin-right: 0;
+    margin-left: 1em;
+}
+
+/* chat own edit time */
+.ownEditeTime {
+    right: calc(4rem + 16px);
+    left: unset;
+}
+
+/* image in message container */
+.messageImage {
+    height: 4em;
+}
+
+/* display element */
+.display {
+    display: block;
+}
+
+/* message response container */
+#responseContainer,
+/* all reaction container */
+#reactUserContainer {
+    display: none;
+    position: absolute;
+    max-height: 12em;
+    width: 12em;
+    background-color: rgba(105, 105, 105, 0.7);
+    padding: 1em;
+    z-index: 3;
+    top: 30%;
+    left: 50%;
+    margin-left: -6em;
+    border-radius: 1em;
+    overflow-y: auto;
+}
+
+/* all reaction container */
+#reactUserContainer {
+    width: 15em;
+    margin-left: -7.5em;
+}
+
+/* all reaction container item */
+#reactUserContainer li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    margin-top: 0.5em;
+}
+
+/* reaction user information */
+.reactUserInfo {
+    display: flex;
+    align-items: center;
+}
+
+/* reaction user image */
+.reactUserImage {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 1.25em;
+    border: 1px solid #bfbfbf;
+    margin-right: 0.5em;
+}
+
+/* response button */
+.responseBtn {
+    width: 100%;
+    font-size: 1.2em;
+}
+
+/* emoji reaction button */
+.emojiReaction {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2em;
+    margin-top: 0.5em;
+}
+
+.emojiReaction:hover {
+    transform: scale(1.5, 1.5);
+}
+
+/* selected emoji button */
+.selectedEmoji {
+    background-color: rgb(202, 202, 202);
+}
+
+/* get user reaction button */
+.getUserReactions {
+    display: flex;
+    align-items: flex-end;
+    background-color: transparent;
+    border: none;
+}
+
+.getUserReactions:hover {
+    transform: translateY(-0.75em) scale(1.5, 1.5);
+}
+
+/* emoji short cut */
+.emojiMessage {
+    cursor: pointer;
+}
+
+.emojiMessage:hover {
+    background-color: white;
+}
+
+/* information selection */
+.info select {
+    margin-left: 0.5em;
+    width: 5em;
+}
+
+/*  */
+.info > div:first-child {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5em;
+    padding-right: 1.5em;
+}
+
+/* information header */
+.info > div:last-child {
+    border: 1px solid lightgrey;
+    height: 85%;
+    margin-top: 1em;
+    overflow-y: auto;
+}
+
+/* last view notification */
+.lastView {
+    position: relative;
+    text-align: center;
+}
+
+.lastView .line {
+    display: inline-block;
+    position: relative;
+    background-color: rgb(245, 245, 245);
+}
+
+.lastView::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0;
+    border-bottom: 1px solid lightgrey;
+    top: 50%;
+    left: 0;
+}
+
+/* reaction emojis container */
+#reaction {
+    display: flex;
+    cursor: pointer;
+}
+
+/* emoji shortcut container */
+#emojisContainer {
+    display: none;
+    position: absolute;
+    width: 7em;
+    height: 8em;
+    padding: 1em 1em;
+    left: 1em;
+    top: -75%;
+    background: lightgrey;
+}
+
+/* exit emoji shortcut button */
+#emojiMessageBack {
+    display: block;
+    margin: 0.5em auto 0;
+}
+
+/* pinned message information */
+#pinnedMessage .info{
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+/* emoji related button,
+nulti-user interactivity button */
+#sendEmoji,
+#emojiMessageBack,
+#disguiseSendImageMessage,
+#getPinnedMessageBtn,
+#inviteBtn {
+    border: none;
+    color: white;
+    background-color: rgb(77, 128, 230);
+}
+
+#sendEmoji:hover,
+#emojiMessageBack:hover,
+#disguiseSendImageMessage:hover,
+#getPinnedMessageBtn:hover,
+#inviteBtn:hover {
+    background-color: rgb(62, 104, 187);
+}
+
+#sendEmoji:active,
+#emojiMessageBack:active,
+#disguiseSendImageMessage:active,
+#getPinnedMessageBtn:active,
+#inviteBtn:active {
+    background-color: rgb(77, 128, 230);
+}
+
+/* exit enlarge image mode button */
+#enlargeImage_back {
+    position: absolute;
+    left: 0.5em;
+    background-color: rgb(77, 128, 230);
+    display: block;
+    border: none;
+    padding: 0.3em 1em;
+    border-radius: 0.5em;
+    color: white;
+}
+
+#enlargeImage_back:hover {
+    background-color: rgb(42, 82, 190);
+}
+
+#enlargeImage_back:active {
+    background-color: rgb(77, 128, 230);
+}
+
+/* enlarge image page */
+#enlargeImage {
+    display: none;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    z-index: 1;
+}
+
+/* enlarge image container */
+#imageContainer {
+    display: flex;
+    align-items: center;
+    height: 90%;
+}
+
+/* carousel image container  */
+#slideImage {
+    flex: 8;
+    width: 80%
+}
+
+/* enlarge image previous, next button */
+#previous,
+#next {
+    display: block;
+    flex: 1;
+}
+
+/* resonse page button */
+#editMessageBtnContatiner,
+#deleteMessage,
+#editMessage,
+#editInput,
+#pinMessage,
+#unpinMessage {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    /* emoji related button,
+    nulti-user interactivity button */
+    #sendEmoji,
+    #emojiMessageBack,
+    #disguiseSendImageMessage,
+    #getPinnedMessageBtn,
+    #inviteBtn {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    /* emoji related button,
+    nulti-user interactivity button */
+    #sendEmoji,
+    #emojiMessageBack,
+    #disguiseSendImageMessage,
+    #getPinnedMessageBtn,
+    #inviteBtn {
+        font-size: 1em;
+    }
+}

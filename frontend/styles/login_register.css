@@ -1,0 +1,189 @@
+/* login and register container */
+#loginRegister {
+    margin-top: 3em;
+}
+
+/* login container and register container */
+#loginBox,
+#registerBox {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.2em;
+    gap: 0.2em;
+
+    max-width: 250px;
+    width: 60%;
+    box-sizing: border-box;
+
+    position: relative;
+    left: 50%;
+    margin-left: max(calc(-30%), -125px);
+    padding: 20px;
+
+    border: 1px solid grey;
+    border-radius: 1em;
+
+    background-color: rgba(105, 138, 245, 0.5);
+    background-image: linear-gradient(rgba(105, 138, 245, 0.5), rgba(168, 184, 238, 0.5));
+}
+
+/* login and register container header */
+#loginRegister h2 {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+/* register container */
+#registerBox {
+    display: none;
+}
+
+/* register notification */
+#loginBox_register span{
+    font-size: 1em;
+}
+
+/* register notification container */
+#loginBox_register {
+    display: grid;
+    text-align: center;
+}
+
+/* submit and login and register container button*/
+.submit,
+#registerBox_back,
+#loginBox_registerBtn {
+    background-color: #21c2eb;
+    color: white;
+    border: none;
+    width: 50%;
+    min-width: 80px;
+    padding: 0.5em 1em;
+    margin: 0px auto;
+    font-weight: bold;
+    border-radius: 2em;
+}
+
+.submit:hover,
+#registerBox_back:hover,
+#loginBox_registerBtn:hover {
+    background-color: #04a4cc;
+}
+
+.submit:active,
+#registerBox_back:active,
+#loginBox_registerBtn:active {
+    background-color: #21c2eb;
+}
+
+/* register container buttons container */
+#registerBox_button {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+/* register container buttons */
+#registerBox_button button {
+    width: 100%;
+}
+
+#registerBox_button button:hover {
+    background-color: #04a4cc;
+}
+
+#registerBox_button button:active {
+    background-color: #21c2eb;
+}
+
+/* login page decoration */
+#sky1,
+#sky2 {
+    content: "";
+    position: absolute;
+    left: 50%;
+    min-width: 500vw;
+    min-height: 500vw;
+    background-color: #fff;
+    z-index: -1;
+}
+
+#sky1 {
+    bottom: 60vh;
+    border-radius: 45%;
+    animation: rotate 10s linear infinite;
+}
+
+#sky2 {
+    bottom: 55vh;
+    opacity: .5;
+    border-radius: 47%;
+    animation: rotate 7s linear infinite;
+}
+
+/* login page animation */
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, 0) rotateZ(0deg);
+    }
+    50% {
+        transform: translate(-50%, -2%) rotateZ(180deg);
+    }
+    100% {
+        transform: translate(-50%, 0%) rotateZ(360deg);
+    }
+}
+
+/* warning for wrong input */
+@keyframes reminder {
+    from {background-color: red;}
+    to {background-color: white;}
+}
+
+/* success login animation */
+@keyframes loginSuccess {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* animation of remove element */
+@keyframes disappear {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        margin-top: -100%;
+    }
+}
+
+/* switch display of login and register animation */
+@keyframes switch {
+    0% {
+        opacity: 0;
+        transform: rotateY(90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+}
+
+/* large scrren setting */
+@media screen and (min-width: 600px) {
+    h1 {
+        font-size: 3em;
+    }
+    
+    /* login container and register container */
+    #loginBox,
+    #registerBox {
+        max-width: 400px;
+        width: 60%;
+        margin-left: max(calc(-30%), -200px);
+    }
+}

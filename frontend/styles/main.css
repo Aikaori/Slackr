@@ -1,0 +1,226 @@
+/* base styles */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+body {
+    overflow: hidden;
+    background-image: linear-gradient(rgba(105, 138, 245, 0.5), rgba(168, 184, 238, 0.5));
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 1em;
+    text-align: center;
+}
+
+h3 {
+    color: black;
+    text-align: center;
+    font-size: 2em;
+    margin: 0;
+    font-weight: normal;
+}
+
+p {
+    margin-top: 0.2em;
+}
+
+/* input text and password */
+input[type="text"],
+input[type="password"] {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid grey;
+    width: 100%;
+    height: 1.7em;
+    font-size: 1.2em;
+    border-radius: 0.5em;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
+textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 65%;
+    border: 0;
+    font-size: 1.5em;
+    margin-bottom: 0.1em;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+/* selected channel */
+.selected {
+    background-color: rgb(225 225 225);
+}
+
+/* password container */
+.passwordContainer {
+    position: relative;
+}
+
+/* show and hide password */
+.showPass,
+.hidePass {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    right: 0.1em;
+    top: 50%;
+    font-size: 1.2em;
+    height: 2em;
+    padding: 0;
+    margin-top: -1.1em;
+}
+
+/* clear defalut little eye logo */
+.showPass::-ms-reveal,
+.hidePass::-ms-reveal {
+    display: none;
+}
+
+/* defalut hide hide button */
+.hidePass {
+    display: none;
+}
+
+/* notification message container*/
+#messageContainer {
+    display: none;
+    background-color: rgba(156, 138, 138, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+
+    align-items: center;
+}
+
+/* notification message child*/
+#messageContainer > div {
+    background-color: rgb(255, 250, 250);
+    width: 50%;
+    margin: 0 auto;
+    padding: 1em;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    max-width: 300px;
+}
+
+/* notification message */
+#msg {
+    margin-bottom: 10%;
+    color: black;
+}
+
+/* notification message close button*/
+#closeMsg {
+    display: block;
+    width: 50%;
+    padding: 5px;
+    background-color: rgb(152, 251, 152);
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 1em auto;
+}
+
+#closeMsg:active {
+    background-color: rgb(77, 230, 128);
+}
+
+/* loading logo */
+#loading {
+    display: none;
+    position: absolute;
+    font-size: 1.2em;
+    top: 10%;
+    z-index: 10;
+    left: 50%;
+    animation: rotate 2s infinite linear;
+}
+
+/* welcome page */
+#welcome {
+    position: absolute;
+    display: none;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* welcome message */
+#wlecomeMessage {
+    display: block;
+    position: absolute;
+    top: 10%;
+    text-align: justify;
+    border: none;
+    margin-top: 3em;
+    padding: 0 3em;
+}
+
+/* explain segement in welcome message */
+#explain {
+    display: inline-block;
+    border: 1px solid grey;
+    padding: 0.1em 0.4em;
+}
+
+/* login animation */
+@keyframes rotate {
+    0% { translate: rotateZ(0deg);}
+    50% { translate: rotateZ(180deg);}
+    100% { translate: rotateZ(360deg);}
+}
+
+/* large scrren setting */
+@media screen and (min-width: 600px) {
+    /* base styles */
+    * {
+        font-size: 18px;
+    }
+    
+    /* all information page conatiner */
+    #allInfoContainer {
+        display: flex;
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+    }
+
+    /* channel navigator */
+    #channelNav {
+        position: static;
+    }
+}

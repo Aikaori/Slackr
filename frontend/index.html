@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Slackr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- You can add your styles and scripts here -->
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
+  <link rel="stylesheet" type="text/css" href="styles/login_register.css" />
+  <link rel="stylesheet" type="text/css" href="styles/channel.css" />
+  <link rel="stylesheet" type="text/css" href="styles/user.css" />
+  <link rel="stylesheet" type="text/css" href="styles/chat.css" />
+  <script type="module" src="src/helpers.js"></script>
+</head>
+
+<body>
+  <!-- This is an example app structure, you can modify this as much as you choose -->
+  <header class="banner">
+    <h1>Slackr</h1>
+  </header>
+  <main role="main">
+    <!-- app goes here -->
+    <div id="messageContainer">
+      <div>
+        <div id="msg"></div>
+        <button id="closeMsg">Close</button>
+      </div>
+    </div>
+
+    <div id="loginRegister">
+      <div id="loginBox">
+        <h2>Login</h2>
+        <label for="loginBox_email">Email:</label><input type="text" id="loginBox_email" placeholder="Enter email address" />
+        <label for="loginBox_password">Password:</label>
+        <div class="passwordContainer">
+          <input type="password" id="loginBox_password" placeholder="Enter password" />
+          <button class="showPass">⊙</button>
+          <button class="hidePass">◡</button>
+        </div>
+        <button id="loginBox_submitBtn" class="submit">Submit</button>
+        <div id="loginBox_register">
+          <span>Don't have an account?</span>
+          <button id="loginBox_registerBtn">Register</button>
+        </div>
+        <button id="offline">Offline</button>
+      </div>
+
+      <div id="registerBox">
+        <h2>Registration</h2>
+        <label for="registerBox_email">Email:</label><input type="text" id="registerBox_email" placeholder="Enter email address"/>
+        <label for="registerBox_name">Name:</label>
+        <input type="text" placeholder="Name" id="registerBox_name"/>
+        <label for="registerBox_password">Password:</label>
+        <div class="passwordContainer">
+          <input type="password" id="registerBox_password" placeholder="8-12 characters"/>
+          <button class="showPass">⊙</button>
+          <button class="hidePass">◡</button>
+        </div>
+        <label for="registerBox_confirmPassword">Confirm Password:</label>
+        <div class="passwordContainer">
+          <input type="password" id="registerBox_confirmPassword" placeholder="Repeat password"/>
+          <button class="showPass">⊙</button>
+          <button class="hidePass">◡</button>
+        </div>
+        <div id="registerBox_button">
+          <button id="registerBox_submit" class="submit">Submit</button>
+          <button id="registerBox_back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="allInfoContainer">
+      <nav id="channelNav">
+        <img id="loginUserImage" alt="loginUserImage" class="imageBaseSetting" />
+        <div id="userName"></div>
+        <button id="channelInfoBtn">Create New Channel</button>
+        <ul id="channelList">
+        </ul>
+        <div id="set_log_container">
+          <button id="settingBtn">Setting</button>
+          <button id="logoutBtn">Logout</button>
+        </div>
+      </nav>
+
+      <div id="chatUIContianer">
+        <div id="loading">&#128260;</div>
+        <div id="chatBox" class="infoContainer">
+          <div id="welcome">
+            <div class="header">
+              <button class="getChannelBtn">≡</button>
+              <h3>welcome</h3>
+            </div>
+            <div class="info">
+              <div id="wlecomeMessage">
+                <p>Welcome To Slackr!</p>
+                <p>In Slackr you can join in different channels and talk to different users</p>
+                <p>click <span id="explain">≡</span> at the top or channel at the right to view all the channels</p>
+                <p>Enjoy~</p>
+              </div>
+            </div>
+          </div>
+          <div id="channelChat">
+            <div id="chatWrap"></div>
+            <div class="header">
+              <button class="getChannelBtn">≡</button>
+              <h3 id="channelName">Slackr</h3>
+              <button id="getChannelInfo">...</button>
+            </div>
+            <div id="chatContent">
+            </div>
+            <ul id="responseContainer">
+              <li><button id="deleteMessage" class="responseBtn">Delete</button></li>
+              <li><button id="editMessage" class="responseBtn">Edit</button></li>
+              <li><button id="pinMessage" class="responseBtn">Pin</button></li>
+              <li><button id="unpinMessage" class="responseBtn">Unpin</button></li>
+              <li>
+                <ul id="reaction">
+                  <li><button class="emojiReaction" value="&#128525;">&#128525;</button></li>
+                  <li><button class="emojiReaction" value="&#128552;">&#128552;</button></li>
+                  <li><button class="emojiReaction" value="&#128517;">&#128517;</button></li>
+                  <li><button class="emojiReaction" value="&#128548;">&#128548;</button></li>
+                </ul>
+              </li>
+            </ul>
+            <div id="reactUserContainer">
+              <h4>All Reactions</h4>
+            </div>
+            <div id="chatInputField">
+              <div id="chatFunction">
+                <button id="sendEmoji">emoji</button>
+                <!-- use style attribute to have greatest priority to hide the file button -->
+                <input type="file" id="sendimageMessage" multiple accept="image/*" style="display: none;" />
+                <button id="disguiseSendImageMessage">image</button>
+                <button id="getPinnedMessageBtn">Show Pinned Messages</button>
+                <button id="inviteBtn">Invite</button>
+              </div>
+              <div id="emojisContainer">
+                <span class="emojiMessage">&#128512;</span>
+                <span class="emojiMessage">&#128513;</span>
+                <span class="emojiMessage">&#128514;</span>
+                <span class="emojiMessage">&#128515;</span>
+                <span class="emojiMessage">&#128516;</span>
+                <span class="emojiMessage">&#128517;</span>
+                <span class="emojiMessage">&#128518;</span>
+                <span class="emojiMessage">&#128519;</span>
+                <span class="emojiMessage">&#128520;</span>
+                <button id="emojiMessageBack">back</button>
+              </div>
+              <textarea id="userInput"></textarea>
+              <textarea id="editInput"></textarea>
+              <button class="messagePostBtn" id="sendBtn">Send</button>
+              <div id="editMessageBtnContatiner">
+                <button class="messagePostBtn" id="editBtn">Edit</button>
+                <button class="messagePostBtn" id="cancelBtn">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="pinnedMessage" class="infoContainer">
+          <div class="header">
+            <button id="pinnedMessage_back" class="backBtn">←</button>
+            <h3>Pinned Messages</h3>
+          </div>
+          <div class="info">
+            <div>sort by: 
+              <select id="pinnedMessageSort">
+                  <option selected>recent</option>
+                  <option>past</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div id="enlargeImage">
+          <div class="header">
+            <button id="enlargeImage_back">Back</button>
+            <h3>Enlarge Image</h3>
+          </div>
+          <div id=imageContainer>
+            <button id="previous">←</button>
+            <img id="slideImage" alt="enlargeImage" />
+            <button id="next">→</button>
+          </div>
+        </div>
+
+        <div id="channelInfo" class="infoContainer">
+          <div class="header">
+            <button id="channelInfo_back" class="backBtn">←</button>
+            <h3></h3>
+          </div>
+
+          <div class="info">
+            <div id="form">
+              <p id="creator">Creator: <span></span></p>
+              <p id="createAt">Create At: <span></span></p>
+              <label for="newChannelName">Channel Name: </label>
+              <input type="text" id="newChannelName"/>
+              <div id="setPrivate">
+                <input type="checkBox" id="private"/>
+                <label for="private">Private</label>
+                <p>visible to you and invited users only</p>
+              </div>
+              <label for="description">Description</label>
+              <textarea id="description"></textarea>
+              <button id="channelInfo_create" class="postBtn">Create</button>
+              <div id="btnContainer">
+                <button id="channelInfo_update" class="postBtn">Update</button>
+                <button id="leaveChannel" class="postBtn">Leave</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="profileContainer" class="infoContainer">
+          <div class="header">
+            <button id="profileBack" class="backBtn">←</button>
+            <h3>Profile</h3>
+          </div>
+          <div class="info">
+            <div id="ownProfile">
+              <img id="ownProfileImage" alt="ownImage" />
+
+              <!-- use style attribute to have greatest priority to hide the file button -->
+              <input id="uploadImgBtn" type="file" accept="image/*" style="display: none;" />
+              <button id="disguiseUploadBtn">change image</button>
+              <label for="ownProfileUserName">name:</label>
+              <input type="text" id="ownProfileUserName">
+              <label for="ownProfileEmail">email:</label>
+              <input type="text" id="ownProfileEmail" />
+              <label for="editPassword">password:</label>
+              <div class="passwordContainer">
+                <input type="password" id="editPassword" />
+                <button class="showPass">⊙</button>
+                <button class="hidePass">◡</button>
+              </div>
+              <label for="editConfirmPassword">Confirm password:</label>
+              <div class="passwordContainer">
+                <input type="password" id="editConfirmPassword" />
+                <button class="showPass">⊙</button>
+                <button class="hidePass">◡</button>
+              </div>
+              <label>bio:</label>
+              <textarea id="ownProfileBio"></textarea>
+              <button id="update">Update</button>
+            </div>
+
+            <div id="profile">
+              <img id="profileImage" alt="userImage" />
+              <p>name: <span id="profileUserName"></span></p>
+              <p>email: <span id="profileEmail"></span></p>
+              <div id="showBio">
+                <p>bio: </p>
+                <p id="profileBio" class="bio"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="inviteContiner" class="infoContainer">
+          <div class="header">
+            <button id="inviteBack" class="backBtn">←</button>
+            <h3>Invite New User</h3>
+          </div>
+          <nav>
+            <ol id="userListNav">
+              <li class="userNav">A</li>
+              <li class="userNav">B</li>
+              <li class="userNav">C</li>
+              <li class="userNav">D</li>
+              <li class="userNav">E</li>
+              <li class="userNav">F</li>
+              <li class="userNav">G</li>
+              <li class="userNav">H</li>
+              <li class="userNav">I</li>
+              <li class="userNav">J</li>
+              <li class="userNav">K</li>
+              <li class="userNav">L</li>
+              <li class="userNav">M</li>
+              <li class="userNav">N</li>
+              <li class="userNav">O</li>
+              <li class="userNav">P</li>
+              <li class="userNav">Q</li>
+              <li class="userNav">R</li>
+              <li class="userNav">S</li>
+              <li class="userNav">T</li>
+              <li class="userNav">U</li>
+              <li class="userNav">V</li>
+              <li class="userNav">W</li>
+              <li class="userNav">X</li>
+              <li class="userNav">Y</li>
+              <li class="userNav">Z</li>
+              <li class="userNav">#</li>
+            </ol>
+          </nav>
+          <div id="userContainer">
+            <input type="text" id="searchUser" />
+            <ol id="userList">
+            </ol>
+            <button id="inviteUser">Invite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <p>&copy; Slackr</p>
+  </footer>
+  <script type="module" src="src/main.js"></script>
+  <script type="module" src="src/channel.js"></script>
+  <script type="module" src="src/chat.js"></script>
+  <script type="module" src="src/user.js"></script>
+</body>
+
+</html>

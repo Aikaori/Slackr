@@ -1,0 +1,397 @@
+/* information container */
+.infoContainer {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* channel list item */
+.channel {
+    position: relative;
+    width: 100%;
+    height: 12%;
+    padding-left: 0.5em;
+    border-bottom: 1px solid lightgrey;
+    color: black;
+    cursor: pointer;
+}
+
+.channel:hover {
+    background-color: rgb(245, 245, 245)
+}
+
+/* public channel */
+.public {
+    color: rgb(34, 139, 34);
+}
+
+/* private channel */
+.private {
+    color: rgb(144, 82, 170);
+}
+
+/* page header */
+.header {
+    position: relative;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-bottom: 1px solid lightgrey;
+}
+
+/* chat conatiner */
+#chatBox {
+    top: 50%;
+    opacity: 0;
+}
+
+/* channel navigator */
+#channelNav {
+    display: none;
+    height: 100vh;
+    width: 70%;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    left: -70%;
+    z-index: 3;
+    background-color: white;
+    transition: left 0.3s;
+}
+
+/* channel list */
+#channelList {
+    margin: 0 auto;
+    margin-top: 1em;
+    padding: 0;
+    width: 90%;
+    height: 60%;
+    background-color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid lightgrey;
+}
+
+/* channel chat page */
+#channelChat {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 1;
+}
+
+/* block operation wrap */
+#chatWrap {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+/* get channel information button */
+#getChannelInfo {
+    position: absolute;
+    right: 0.5em;
+
+    background-color: transparent;
+    border: none;
+    font-size: 2em;
+}
+
+#getChannelInfo:hover {
+    font-size: 2.3em;
+}
+
+/* view channel list button */
+.getChannelBtn {
+    position: absolute;
+    left: 0.5em;
+    
+    background-color: rgb(255, 250, 250);
+    border: 1px solid silver;
+    padding: 0;
+    height: 1.2em;
+    width: 1.5em;
+    font-size: 2em;
+}
+
+.getChannelBtn:active {
+    border: 2px solid black;
+}
+
+/* send message button */
+.messagePostBtn {
+    float: right;
+    border: 0;
+    background-color: rgb(30, 144, 255);
+    color: white;
+    font-size: 1em;
+    width: 4em;
+    height: 1.5em;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+}
+
+.messagePostBtn:hover {
+    background-color: rgb(0, 127, 253);
+}
+
+.messagePostBtn:active {
+    background-color: rgb(30, 144, 255);
+}
+
+/* information container */
+.info {
+    padding: 3% 5%;
+    height: 90%;
+    background-color: rgb(245, 245, 245);
+    color: black;
+    text-align: left;
+    font-size: 1.2em;
+}
+
+/* quite current page button */
+.backBtn {
+    position: absolute;
+    left: 0.5em;
+    font-size: 2em;
+    background-color: transparent;
+    border: none;
+    height: 1em;
+}
+
+/* modify channel button */
+.postBtn {
+    display: block;
+    margin: 1em auto 0;
+    width: 5em;
+    font-size: 1.2em;
+    border-radius: 0.2em;
+    background-color: rgb(9, 111, 244);
+    color: white;
+}
+
+.postBtn:active {
+    background-color: rgb(0, 91, 211);
+}
+
+/* hide element */
+.hidden {
+    display: none;
+}
+
+/* join channel button */
+.joinBtn {
+    height: 1.33em;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    margin-top: -0.665em;
+    padding: 0.5% 2.5%;
+
+    font-size: 1.1em;
+    background-color: rgb(115, 230, 140);
+    color: white;
+    border: 0;
+    border-radius: 20%;
+}
+
+/* new message notification */
+.newMessage {
+    height: 1.33em;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    margin-top: -0.665em;
+    padding: 0.5% 2.5%;
+    font-size: 1.1em;
+    color: rgb(179, 0, 24);
+}
+
+/* channel chats container */
+#chatContent {
+    background-color: rgb(245, 245, 245);
+    height: 60%;
+    color: black;
+}
+
+/* chat input file for input and edit */
+#chatInputField {
+    position: absolute;
+    bottom: 0;
+    height: 30%;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid lightgrey;
+}
+
+/* chat function container */
+#chatFunction {
+    width: 100%;
+    height: 15%;
+    text-align: center;
+}
+
+/* create channel button*/
+#channelInfoBtn {
+    background-color: rgb(77, 128, 230);
+    color: white;
+    border: none;
+    font-size: 1.2em;
+    display: block;
+    margin: 0 auto;
+    padding: 0.3em;
+}
+
+#channelInfoBtn:hover {
+    background-color: rgb(42, 82, 190);
+}
+
+#channelInfoBtn:active {
+    background-color: rgb(77, 128, 230);
+}
+
+/* channel information form */
+#form {
+    display: block;
+    width: 80%;
+    margin: 1em auto;
+    max-width: 600px;
+    border: none;
+    height: 100%;
+    padding: 0;
+}
+
+/* channel description */
+#description {
+    height: 40%;
+}
+
+/* login user setting, logout button*/
+#set_log_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3em;
+}
+
+/* logout button */
+#logoutBtn,
+/* setting button */
+#settingBtn {
+    margin-top: 1em;
+    background-color: rgb(77, 128, 230);
+    border: none;
+    padding: 0.5em 0.6em;
+    color: white;
+    border-radius: 0.5em;
+    bottom: 1.5em;
+}
+
+#logoutBtn:hover,
+#settingBtn:hover {
+    background-color: rgb(62, 104, 187);
+}
+
+#logoutBtn:active,
+#settingBtn:active {
+    background-color: rgb(77, 128, 230);
+}
+
+/* leave channel button */
+#leaveChannel {
+    background-color: red;
+}
+
+/* update, leave channel button container */
+#btnContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    gap: 1em;
+    height: 10%;
+    border: none;
+}
+
+/* user list navigator */
+#userListNav {
+    position: fixed;
+    right: 1em;
+    list-style: none;
+    top: 10%;
+    color: black;
+}
+
+/* user list container */
+#userContainer {
+    height: 90%;
+    background-color: white;
+}
+
+/* remove wrap animation */
+@keyframes block {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* display element animation */
+@keyframes display {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+/* large scrren setting */
+@media screen and (min-width: 600px) {
+    /* channel navigator */
+    #channelNav {
+        position: static;
+        border-right: 1px solid lightgrey;
+        max-width: max(30%, 350px);
+        opacity: 0;
+    }
+
+    /* utility pages container */
+    #chatUIContianer {
+        position: relative;
+        width: max(70%, calc(100%-400px));
+        height: 100vh;
+    }
+
+    /* login user setting, logout button*/
+    #set_log_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+}
+}
+
+/* large scrren setting */
+@media screen and (min-width: 800px) {
+    /* channel navigator */
+    #channelNav {
+        position: static;
+        border-right: 1px solid lightgrey;
+        width: 350px;
+        opacity: 0;
+    }
+}
